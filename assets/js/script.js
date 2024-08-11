@@ -1,4 +1,4 @@
-const keys = ['Escape', 'Backspace'];
+const keys = ['Esc', 'Back'];
 
 function redirectAfterDelay() {
     setTimeout(() => {
@@ -13,7 +13,8 @@ function redirectToGoogle() {
 document.addEventListener('keydown', function(event) {
     if (keys.includes(event.key)) {
         event.preventDefault(); 
-        redirectToGoogle();
+        /* redirectToGoogle(); */
+        window.close()
     }
 });
 
