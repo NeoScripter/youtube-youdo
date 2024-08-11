@@ -1,0 +1,101 @@
+@font-face {
+    font-family: "Bold";
+    src: url(../fonts/Montserrat-Bold.woff2) format("woff2"), url(../fonts/Montserrat-Bold.woff) format("woff");
+}
+
+@font-face {
+    font-family: "Medium";
+    src: url(../fonts/Montserrat-Medium.woff2) format("woff2"), url(../fonts/Montserrat-Medium.woff) format("woff");
+}
+
+
+:root {
+    --logo-width: clamp(116.63px, 16.2vw, 311px);
+    --logo-height: clamp(82.13px, 11.41vw, 219px);
+    --fs-large: clamp(19.13px, 2.66vw, 51px);
+    --spinner-width: clamp(27px, 3.75vw, 72px);
+    --padding-block: clamp(78px, 10.84vw, 208px);
+    --padding-inline: clamp(38.25px, 5.32vw, 102px);
+    --gap: clamp(33.75px, 4.69vw, 90px);
+    --title-width: clamp(237.38px, 32.97vw, 633px);
+    --title-height: clamp(73.88px, 10.27vw, 197px);
+    --logo-gap: clamp(11.25px, 1.57vw, 30px);
+}
+
+html {
+    overflow-x: hidden;
+    overflow-x: clip;
+}
+
+body {
+    overflow-x: hidden;
+    overflow-x: clip;
+    color: #fff;
+    font-family: "Medium";
+}
+
+.wrapper {
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-block: var(--padding-block);
+    padding-inline: var(--padding-inline);
+    gap: var(--gap);
+    min-height: 100vh;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--logo-gap);
+
+
+}
+
+@media screen and (max-width: 450px) {
+    :root {
+        --divider: 0.7;
+        --logo-width: calc(116.63px * var(--divider));
+        --logo-height: calc(82px * var(--divider)); 
+        --title-width: calc(237px * var(--divider));
+        --title-height: calc(74px * var(--divider));
+    }
+}
+
+.logo {
+    width: var(--logo-width);
+    height: var(--logo-height);
+}
+
+.title {
+    width: var(--title-width);
+    height: var(--title-height);
+}
+
+h1 {
+    font-family: "Bold";
+    display: block;
+}
+
+p {
+    font-size: var(--fs-large);
+    line-height: 123%;
+    text-align: center;
+}
+
+.spinner {
+    width: var(--spinner-width);
+    aspect-ratio: 1/1;
+    border: 5px solid white; 
+    border-top: 5px solid transparent;
+    border-radius: 50%; 
+    animation: spin 1s linear infinite;
+    margin-inline: auto;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
