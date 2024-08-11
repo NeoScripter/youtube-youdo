@@ -39,6 +39,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     padding-block: var(--padding-block);
     padding-inline: var(--padding-inline);
     gap: var(--gap);
@@ -52,6 +53,18 @@ body {
     gap: var(--logo-gap);
 
 
+}
+
+@media screen and (max-width: 800px) {
+    .wrapper {
+        padding-inline: calc(var(--padding-inline) * 3);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .wrapper {
+        padding-inline: calc(var(--padding-inline) * 1);
+    }
 }
 
 @media screen and (max-width: 450px) {
