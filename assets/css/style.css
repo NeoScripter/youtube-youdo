@@ -1,13 +1,14 @@
 @font-face {
     font-family: "Bold";
-    src: url(../fonts/Montserrat-Bold.woff2) format("woff2"), url(../fonts/Montserrat-Bold.woff) format("woff");
+    src: url(../fonts/Montserrat-Bold.woff2) format("woff2"),
+        url(../fonts/Montserrat-Bold.woff) format("woff");
 }
 
 @font-face {
     font-family: "Medium";
-    src: url(../fonts/Montserrat-Medium.woff2) format("woff2"), url(../fonts/Montserrat-Medium.woff) format("woff");
+    src: url(../fonts/Montserrat-Medium.woff2) format("woff2"),
+        url(../fonts/Montserrat-Medium.woff) format("woff");
 }
-
 
 :root {
     --logo-width: clamp(116.63px, 16.2vw, 311px);
@@ -51,8 +52,6 @@ body {
     align-items: center;
     justify-content: center;
     gap: var(--logo-gap);
-
-
 }
 
 @media screen and (max-width: 800px) {
@@ -71,7 +70,7 @@ body {
     :root {
         --divider: 0.7;
         --logo-width: calc(116.63px * var(--divider));
-        --logo-height: calc(82px * var(--divider)); 
+        --logo-height: calc(82px * var(--divider));
         --title-width: calc(237px * var(--divider));
         --title-height: calc(74px * var(--divider));
     }
@@ -100,15 +99,43 @@ p {
 
 .spinner {
     width: var(--spinner-width);
-    aspect-ratio: 1/1;
-    border: 5px solid white; 
-    border-top: 5px solid transparent;
-    border-radius: 50%; 
-    animation: spin 1s linear infinite;
-    margin-inline: auto;
-  }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
+    animation: rotator 1.4s linear infinite;
+}
+
+@keyframes rotator {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(270deg);
+    }
+}
+
+.path {
+    stroke: #ffffff;
+    stroke-dasharray: 187;
+    stroke-dashoffset: 0;
+    transform-origin: center;
+    animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+}
+
+@keyframes dash {
+    0% {
+        stroke-dashoffset: 187;
+    }
+    50% {
+        stroke-dashoffset: 46.75;
+        transform: rotate(135deg);
+    }
+    100% {
+        stroke-dashoffset: 187;
+        transform: rotate(450deg);
+    }
+}
+
+@keyframes colors {
+    0%,
+    100% {
+        stroke: #ffffff;
+    }
+}
